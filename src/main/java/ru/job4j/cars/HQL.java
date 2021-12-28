@@ -39,7 +39,7 @@ public class HQL {
              */
 
             Query candidateN = session.createQuery("from Candidate c where c.name = :name").setParameter("name", "Ivan");
-            System.out.println(candidateN.uniqueResult());
+            System.out.println(candidateN.getSingleResult());
 
             /**
              * Обновление записи кандидата
