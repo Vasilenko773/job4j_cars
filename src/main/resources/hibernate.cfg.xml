@@ -20,6 +20,7 @@
         <mapping class="ru.job4j.cars.model.Car"/>
         <mapping class="ru.job4j.cars.model.Advertisement"/>
         <mapping class="ru.job4j.cars.model.User"/>
+        <mapping class="ru.job4j.cars.model.Candidate"/>
 
     </session-factory>
 </hibernate-configuration>
