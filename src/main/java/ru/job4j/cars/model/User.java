@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -23,5 +25,5 @@ public class User {
             @JoinColumn(name = "users_id", nullable = false, updatable = false)},
             inverseJoinColumns = {
                     @JoinColumn(name = "cars_id", nullable = false, updatable = false)})
-    private List<Car> cars = new ArrayList<>();
+    private Set<Car> cars = new HashSet<>();
 }
