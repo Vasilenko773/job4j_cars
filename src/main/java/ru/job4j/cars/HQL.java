@@ -38,8 +38,10 @@ public class HQL {
              * Получение кандидата по полю :name
              */
 
-            Query candidateN = session.createQuery("from Candidate c where c.name = :name").setParameter("name", "Ivan");
-            System.out.println(candidateN.getSingleResult());
+            List<Candidate> candidates = session.createQuery("from Candidate c where c.name = :name").setParameter("name", "Ivan").list();
+            for (Candidate cnd : candidates) {
+                System.out.println(cnd);
+            }
 
             /**
              * Обновление записи кандидата
