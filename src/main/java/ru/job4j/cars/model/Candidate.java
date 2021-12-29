@@ -18,12 +18,17 @@ public class Candidate {
 
     private int salary;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="data_base_id")
+    private DatabaseOfVacancies database;
 
-    public static Candidate of(String name, int experience, int salary) {
+
+    public static Candidate of(String name, int experience, int salary, DatabaseOfVacancies database) {
         Candidate candidate = new Candidate();
         candidate.name = name;
         candidate.experience = experience;
         candidate.salary = salary;
+        candidate.database = database;
         return candidate;
     }
 
@@ -59,6 +64,31 @@ public class Candidate {
         this.salary = salary;
     }
 
+    public DatabaseOfVacancies getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(DatabaseOfVacancies database) {
+        this.database = database;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Candidate candidate = (Candidate) o;
+        return id == candidate.id && experience == candidate.experience && salary == candidate.salary && Objects.equals(name, candidate.name) && Objects.equals(database, candidate.database);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, experience, salary, database);
+    }
+
     @Override
     public String toString() {
         return "Candidate{"
@@ -66,6 +96,7 @@ public class Candidate {
                 + ", name='" + name + '\''
                 + ", experience=" + experience
                 + ", salary=" + salary
+                + ", database=" + database
                 + '}';
     }
 }
