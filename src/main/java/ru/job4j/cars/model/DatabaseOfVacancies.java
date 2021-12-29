@@ -72,7 +72,7 @@ public class DatabaseOfVacancies {
                 + '}';
     }
 
-    public static DatabaseOfVacancies of (String title) {
+    public static DatabaseOfVacancies of(String title) {
         DatabaseOfVacancies db = new DatabaseOfVacancies();
         db.title = title;
         return db;

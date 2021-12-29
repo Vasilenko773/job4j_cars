@@ -19,7 +19,7 @@ public class Candidate {
     private int salary;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="data_base_id")
+    @JoinColumn(name = "data_base_id")
     private DatabaseOfVacancies database;
 
 
