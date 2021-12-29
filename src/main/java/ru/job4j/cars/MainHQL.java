@@ -8,10 +8,6 @@ import java.util.List;
 public class MainHQL {
 
     public static void main(String[] args) {
-        List<Vacancy> vacancies = AddRepository.instOf().getVacancyToday();
-        for (Vacancy v : vacancies) {
-            System.out.println(v);
-        }
 
         List<Advertisement> advertisementList = AddRepository.instOf().getAdvertisementToday();
         for (Advertisement a : advertisementList) {

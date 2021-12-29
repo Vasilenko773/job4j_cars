@@ -32,11 +32,6 @@ public class AddRepository implements Store {
         return Lazy.INST;
     }
 
-    @Override
-    public List<Vacancy> getVacancyToday() {
-        return this.tx(session -> session.createQuery("from Vacancy v where v.created >= : date")
-                .setParameter("date", Timestamp.valueOf(LocalDateTime.now().minusDays(1))).list());
-    }
 
     @Override
     public List<Advertisement> getAdvertisementToday() {
